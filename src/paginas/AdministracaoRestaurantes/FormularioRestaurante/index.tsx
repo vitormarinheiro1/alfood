@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import IRestaurante from "../../../interfaces/IRestaurante";
 import { ArrowLeft } from "lucide-react";
+import http from "../../../http";
 
 const FormularioRestaurante = () => {
 
@@ -11,7 +12,7 @@ const FormularioRestaurante = () => {
 
     useEffect(() => {
         if (parametros.id) {
-            axios.get<IRestaurante>(`http://localhost:8000/api/v2/restaurantes/${parametros.id}/`)
+            http.get<IRestaurante>(`/restaurantes/${parametros.id}/`)
                 .then(resposta => setNomeRestaurante(resposta.data.nome))
         }
     }, [parametros])
@@ -20,7 +21,7 @@ const FormularioRestaurante = () => {
 
     const aoSubmeterForm = (evento: React.FormEvent<HTMLFormElement>) => {
         if (parametros.id) {
-            axios.put(`http://localhost:8000/api/v2/restaurantes/${parametros.id}/`, {
+            http.put(`/restaurantes/${parametros.id}/`, {
                 nome: nomeRestaurante
             })
                 .then(() => {
@@ -30,7 +31,7 @@ const FormularioRestaurante = () => {
                     alert(`Erro ao alterar. Erro: ${erro}`)
                 })
         } else {
-            axios.post("http://localhost:8000/api/v2/restaurantes/", {
+            http.post("/restaurantes/", {
                 nome: nomeRestaurante
             })
                 .then(() => {
