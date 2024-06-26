@@ -1,8 +1,9 @@
 import { Button, TextField } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import IRestaurante from "../../../interfaces/IRestaurante";
+import { ArrowLeft  } from "lucide-react";
 
 const FormularioRestaurante = () => {
 
@@ -46,19 +47,26 @@ const FormularioRestaurante = () => {
     }
 
     return (
-        <form onSubmit={aoSubmeterForm}>
-            <TextField
-                value={nomeRestaurante}
-                onChange={evento => setNomeRestaurante(evento.target.value)}
-                id="outlined-basic"
-                label="Nome do restaurante"
-                variant="outlined"
-            />
-            <Button
-                type="submit"
-                variant="outlined"
-            >SALVAR</Button>
-        </form>
+        <>
+            <Link to={`/admin/restaurantes/`}>
+                <Button variant="contained" startIcon={<ArrowLeft  />}>
+                    Voltar
+                </Button>
+            </Link>
+            <form onSubmit={aoSubmeterForm}>
+                <TextField
+                    value={nomeRestaurante}
+                    onChange={evento => setNomeRestaurante(evento.target.value)}
+                    id="outlined-basic"
+                    label="Nome do restaurante"
+                    variant="outlined"
+                />
+                <Button
+                    type="submit"
+                    variant="outlined"
+                >SALVAR</Button>
+            </form>
+        </>
     )
 }
 
