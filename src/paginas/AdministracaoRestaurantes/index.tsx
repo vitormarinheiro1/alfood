@@ -4,6 +4,8 @@ import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import IRestaurante from '../../interfaces/IRestaurante';
+import { Link } from 'react-router-dom';
+import { Pencil } from 'lucide-react';
 
 const AdministracaoRestaurantes = () => {
 
@@ -28,9 +30,13 @@ const AdministracaoRestaurantes = () => {
                         <TableRow key={restaurante.id}>
                             <TableCell>{restaurante.id}</TableCell>
                             <TableCell>{restaurante.nome}</TableCell>
+                            <TableCell>
+                                <Link to={`/admin/restaurantes/${restaurante.id}`}>
+                                    <Pencil color='#5e5e5e' />
+                                </Link>
+                            </TableCell>
                         </TableRow>
                     )}
-
                 </TableBody>
             </Table>
         </TableContainer>
