@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import IRestaurante from '../../interfaces/IRestaurante';
 import { Link } from 'react-router-dom';
-import { Plus, Pencil, X } from 'lucide-react';
+import { Plus, Pencil, X, ArrowLeft } from 'lucide-react';
 
 const AdministracaoRestaurantes = () => {
 
@@ -28,6 +28,15 @@ const AdministracaoRestaurantes = () => {
     return (
         <>
             <h1>Administração Restaurante</h1>
+            <Link to={`/`}>
+                <Button
+                    sx={{ marginRight: 1 }}
+                    variant="contained"
+                    startIcon={<ArrowLeft />}
+                >
+                    Voltar
+                </Button>
+            </Link>
             <Link to={`/admin/restaurantes/novo`}>
                 <Button variant="contained" color="success" startIcon={<Plus />}>
                     Adicionar
