@@ -1,8 +1,8 @@
 import { Box, Button, Container, TextField, Typography, Paper } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import IRestaurante from "../../../interfaces/IRestaurante";
-import http from "../../../http";
+import IRestaurante from "../../../../interfaces/IRestaurante";
+import http from "../../../../http";
 
 const FormularioRestaurante = () => {
 

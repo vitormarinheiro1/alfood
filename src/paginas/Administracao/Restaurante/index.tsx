@@ -2,10 +2,10 @@ import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
 import { Button, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 import { useEffect, useState } from 'react';
-import IRestaurante from '../../interfaces/IRestaurante';
+import IRestaurante from '../../../interfaces/IRestaurante';
 import { Link } from 'react-router-dom';
 import { Pencil, X } from 'lucide-react';
-import http from '../../http';
+import http from '../../../http';
 
 const AdministracaoRestaurantes = () => {
 
